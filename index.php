@@ -6,15 +6,15 @@
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 	<title>MMTLP Justice Icon | Generator</title>
 	
-	<meta property="og:url" content="https://www.mmtlp.me/" />
-	<meta property="og:title" content="MMTLP Justice Icon | Generator" />
-	<meta property="og:description" content="Generate your OWN custom MMTLP justice icon!" />
-	<meta property="og:image" content="https://www.mmtlp.me/favicon.png" />
+	<meta name="og:url" content="https://www.mmtlp.me/" />
+	<meta name="og:title" content="MMTLP Justice Icon | Generator" />
+	<meta name="og:description" content="Generate your OWN custom MMTLP justice icon!" />
+	<meta name="og:image" content="https://www.mmtlp.me/favicon.png?v=1" />
 	
-	<meta name="twitter:site" content="https://www.mmtlp.me/favicon.png" />
+	<meta name="twitter:site" content="https://www.mmtlp.me/" />
 	<meta name="twitter:title" content="MMTLP Justice Icon | Generator" />
 	<meta name="twitter:description" content="Generate your OWN custom MMTLP justice icon!" />
-	<meta name="twitter:image" content="https://www.mmtlp.me/favicon.png" />
+	<meta name="twitter:image" content="https://www.mmtlp.me/favicon.png?v=1" />
 	
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 	<style type="text/css">
