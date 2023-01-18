@@ -3,8 +3,19 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-	<title>MMTLP Justice Icon - Generator</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+	<title>MMTLP Justice Icon | Generator</title>
+	
+	<meta property="og:url" content="http://www.mmtlp.me/" />
+	<meta property="og:title" content="MMTLP Justice Icon | Generator" />
+	<meta property="og:description" content="Generate your OWN custom MMTLP justice icon!" />
+	<meta property="og:image" content="https://www.mmtlp.me/favicon.png" />
+	
+	<meta name="twitter:site" content="https://www.mmtlp.me/favicon.png" />
+	<meta name="twitter:title" content="MMTLP Justice Icon | Generator" />
+	<meta name="twitter:description" content="Generate your OWN custom MMTLP justice icon!" />
+	<meta name="twitter:image" content="https://www.mmtlp.me/favicon.png" />
+	
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 	<style type="text/css">
 		*{box-sizing:border-box;font-family:Verdana;vertical-align:top;font-size:12px;line-height:16px;position:relative}
@@ -17,7 +28,7 @@
 		#canvas .left{float:left;width:50%;margin:0 auto}
 		#canvas .right{float:right;width:45%;padding:15px;;margin:0 auto;border:solid 1px #ccc;background:#f1f1f1}
 		#canvas #icon{background:#FFF;height:100%;min-height:340px;position:relative;width:400px;height:400px}
-		#canvas #icon #iconImage{margin:0 auto;z-index:10;background: #000;-webkit-mask: url(icon.svg) center 0 / contain repeat;width:400px;height:400px}
+		#canvas #icon #iconImage{margin:0 auto;z-index:10;background: #000;-webkit-mask: url('icon.svg?v=<?php echo date('m/d/Y h:i:s a', time());?>') center 0 / contain repeat;width:400px;height:400px}
 		#canvas #icon .icon-text{text-align:center;height:100%;width:100%;vertical-align:middle;font-size:12px;line-height:12px;min-height:200px;position:absolute;top:40%;color:#FFF;font-size:52px;line-height:64px;font-weight:bold;text-shadow:4px 4px 0 #000;z-index:1000}
 		.clear{clear:both}
 		label em{font-weight:normal}
@@ -26,9 +37,10 @@
 		input[type=color]{padding:0}
 		.inline{display:inline-block!important}
 		input[type='checkbox']{position:relative;top:-2px}
-		@media screen and (max-width:800px){
+		@media screen and (max-width:600px){
 			#canvas .left,#canvas .right{float:none;width:100%;}
 			#canvas .left{margin-bottom:15px}
+			#canvas #icon, #canvas #icon #iconImage{width:100%;max-width:400px}
 		}
 		table{width:100%;border-collapse:collapse}
 	</style>
@@ -38,11 +50,6 @@
 	<h1>MMTLP Icon Generator</h1>
 	
 	<center>
-		Art designed with 💕 by <a href="https://twitter.com/SarahDodds5">ArtBurn</a>
-		<br />
-		Generator built with 💕 by <a href="https://twitter.com/toxiclogix">ToxicLogix</a>
-		<br />
-		<br />
 		<a target="_blank" href="https://twitter.com/search?q=%23MMTLP">#MMTLP</a> | 
 		<a target="_blank" href="https://twitter.com/search?q=%23MMAT">#MMAT</a> | 
 		<a target="_blank" href="https://twitter.com/search?q=%23MetaFam">#MetaFam</a> | 
@@ -50,8 +57,16 @@
 		<a target="_blank" href="https://twitter.com/search?q=%23RetailTogetherStrong">#RetailTogetherStrong</a>
 		<br />
 		<br />
+		<a target="_blank" href="https://twitter.com/search?q=%23EIGH">#EIGH</a> | 
+		<a target="_blank" href="https://twitter.com/search?q=%23CRGB">#CRGB</a> | 
+		<a target="_blank" href="https://twitter.com/search?q=%23CRTD">#CRTD</a> | 
+		<a target="_blank" href="https://twitter.com/search?q=%23FNGR">#FNGR</a> | 
+		<a target="_blank" href="https://twitter.com/search?q=%23GTII">#GTII</a>
+		<br />
+		<br />
 		<a target="_blank" href="https://www.fairmarketsnow.org/">FairMarketsNow</a> | 
-		<a target="_blank" href="https://www.urvin.finance/advocacy/we-the-investors-pfof-sign-on">WeTheInvestors</a>
+		<a target="_blank" href="https://www.urvin.finance/advocacy/we-the-investors-pfof-sign-on">WeTheInvestors</a> | 
+		<a target="_blank" href="https://ceobloc.com/">CEOBLOC</a>
 	</center>
 	<br />
 	
@@ -157,7 +172,7 @@
 					<input type="number" value="0" min="0" max="100" id="txtSpacing" onchange="ChangeTextSpacing();" />
 				</td>
 				<td>
-					<label>Line Height</label>
+					<label>Height</label>
 					<input type="number" value="64" min="0" max="100" id="txtHeight" onchange="ChangeTextLineheight();" />
 				</td>
 				<td>
@@ -174,6 +189,13 @@
 		
 	</div>
 	<div class="clear"></div>
+	
+	<center>
+		<br />
+		Art designed with 💕 by <a href="https://twitter.com/ArtburnDesigns">ArtBurn</a>
+		<br />
+		Generator built with 💕 by <a href="https://twitter.com/toxiclogix">ToxicLogix</a>
+	</center>
 	
 	<script>
 		function ChangeBackground(){
