@@ -6,7 +6,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 	<title>MMTLP Justice Icon | Generator</title>
 	
-	<meta property="og:url" content="http://www.mmtlp.me/" />
+	<meta property="og:url" content="https://www.mmtlp.me/" />
 	<meta property="og:title" content="MMTLP Justice Icon | Generator" />
 	<meta property="og:description" content="Generate your OWN custom MMTLP justice icon!" />
 	<meta property="og:image" content="https://www.mmtlp.me/favicon.png" />
