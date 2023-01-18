@@ -185,7 +185,10 @@
 		<div class="clear"></div>
 		
 		<br />
-		<center>Use your device screenshot feature to capture the image.<br />No back-end code or front-end analytics are used for this tool.</center>
+		<center>
+			Use your device screenshot feature to capture the image.<br />No back-end code or front-end analytics are used for this tool.<br />
+			<a target="_blank" href="https://github.com/toxiclogix/MMTLP-Justice-Icon-Source">Source Code</a>
+		</center>
 		
 	</div>
 	<div class="clear"></div>
