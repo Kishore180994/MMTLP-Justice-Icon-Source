@@ -35,12 +35,13 @@
 		input{margin-bottom:5px}
 		input[type=color],input[type=number],input[type=text],select{margin-bottom:5px;padding:5px}
 		input[type=color]{padding:0}
+		hr{margin:10px auto}
 		.inline{display:inline-block!important}
 		input[type='checkbox']{position:relative;top:-2px}
 		@media screen and (max-width:600px){
 			#canvas .left,#canvas .right{float:none;width:100%;}
 			#canvas .left{margin-bottom:15px}
-			#canvas #icon, #canvas #icon #iconImage{width:100%;max-width:400px}
+			#canvas #icon, #canvas #icon #iconImage{width:100%;max-width:400px;min-height:360px;height:auto!important;background-repeat:no-repeat;-webkit-mask-repeat:no-repeat}
 		}
 		table{width:100%;border-collapse:collapse}
 	</style>
@@ -94,6 +95,10 @@
 			
 			<input type="checkbox" id="gradientOpt" value="1" onchange="ToggleGradient();" class="inline" />
 			<label for="gradientOpt" class="inline" >Gradient</label>
+			<br />
+			<input type="checkbox" id="shadowOpt" value="1" onchange="ToggleInset();" class="inline" />
+			<label for="shadowOpt" class="inline" >Inset Shadow</label>
+			
 			<div id="gradient-options" style="display:none">
 				<table><tr>
 					<td>
@@ -114,8 +119,6 @@
 				</tr></table>
 			</div>
 			
-			<input type="checkbox" id="shadowOpt" value="1" onchange="ToggleInset();" class="inline" />
-			<label for="shadowOpt" class="inline" >Inset Shadow</label>
 			<div id="shadow-options" style="display:none">
 				<table><tr>
 					<td>
@@ -186,8 +189,9 @@
 		
 		<br />
 		<center>
-			Use your device screenshot feature to capture the image.<br />No back-end code or front-end analytics are used for this tool.<br />
-			<a target="_blank" href="https://github.com/toxiclogix/MMTLP-Justice-Icon-Source">Source Code</a>
+			Use your device screenshot feature to capture the image.<br />No back-end code or front-end analytics are used for this tool.
+			<br /><br />
+			[ <a target="_blank" href="https://github.com/toxiclogix/MMTLP-Justice-Icon-Source">Source Code</a> ]
 		</center>
 		
 	</div>
