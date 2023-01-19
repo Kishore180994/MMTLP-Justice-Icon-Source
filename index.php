@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html><?php $text = 'MMTLP'; ?>
 <html lang="en-us">
-<head><?php $text = 'MMTLP'; if(isset($_GET['t'])){ $text = strip_tags(htmlentities($text)); }?>
-	<?php echo '<!--'.$text.'-->'; ?>
+<head>
+
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-	<title><?php echo $text;?> Justice Icon | Generator</title>
+	<title><?php echo $text;?> Icon Generator</title>
 
 	<meta name="og:url" content="https://www.mmtlp.me/" />
 	<meta name="og:title" content="<?php echo $text;?> Justice Icon | Generator" />
@@ -23,6 +23,7 @@
 	<style type="text/css">
 		*{box-sizing:border-box;font-family:Verdana;vertical-align:top;font-size:12px;line-height:16px;position:relative}
 		h1{text-align:center;font-size:24px;margin:20px auto}
+		h1 span{font-size:24px}
 		h2{font-size:18px;margin:0 0 10px 0}
 		label{font-weight:bold;display:block}
 		#icon *{width:100%;height:100%}
@@ -53,7 +54,7 @@
 </head>
 <body>
 
-	<h1><?php echo $text;?> Icon Generator</h1>
+	<h1><span><?php echo $text;?></span> Icon Generator</h1>
 	
 	<center>
 		<a target="_blank" href="https://twitter.com/search?q=%23MMTLP">#MMTLP</a> | 
@@ -66,6 +67,7 @@
 		<a target="_blank" href="https://twitter.com/search?q=%23EIGH">#EIGH</a> | 
 		<a target="_blank" href="https://twitter.com/search?q=%23CRGB">#CRGB</a> | 
 		<a target="_blank" href="https://twitter.com/search?q=%23CRTD">#CRTD</a> | 
+		<a target="_blank" href="https://twitter.com/search?q=%23GNS">#GNS</a> | 
 		<a target="_blank" href="https://twitter.com/search?q=%23FNGR">#FNGR</a> | 
 		<a target="_blank" href="https://twitter.com/search?q=%23GTII">#GTII</a>
 		<br />
@@ -246,6 +248,13 @@
 	</center>
 	
 	<script>
+		var text = 'MMTLP';
+		LoadText();
+		function LoadText(){
+			text = window.location.search.substr(1).split('=')[1];
+			$('#txtContent').val(text.replace('%3C','<').replace('%3E','>'));
+			ChangeText();
+		}
 		function SwapIcon(){
 			var i = $('#iconFile').val();
 			$('#canvas #icon #iconImage').css('cssText',"-webkit-mask: url('"+i+"') center 0 / contain repeat;");
