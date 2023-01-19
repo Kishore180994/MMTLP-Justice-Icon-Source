@@ -40,16 +40,18 @@
 		input[type=color],input[type=number],input[type=text],select{margin-bottom:5px;padding:5px}
 		input[type=color]{padding:0}
 		hr{margin:10px auto}
+		.ui-wrapper{position:absolute!important}
 		.inline{display:inline-block!important}
 		input[type='checkbox']{position:relative;top:-2px}
+		.overlay{position:absolute;top:0px;left:0;right:0;margin:0 auto;width:100%}
+		table{width:100%;border-collapse:collapse}
 		@media screen and (max-width:800px){
 			#canvas .left,#canvas .right{float:none;width:100%;}
 			#canvas .left{margin-bottom:15px}
 			#canvas #icon, #canvas #icon #iconImage{width:100%;max-width:328px;min-height:325px;height:auto!important;background-repeat:no-repeat;-webkit-mask-repeat:no-repeat}
-			#canvas{padding:0;border:0;background:#FFF
+			#canvas{padding:0;border:0;background:#FFF}
+			.image-overlays{display:none}
 		}
-		.overlay{position:absolute;top:0px;left:0;right:0;margin:0 auto;width:100%}
-		table{width:100%;border-collapse:collapse}
 	</style>
 	
 </head>
@@ -213,7 +215,7 @@
 				</td>
 				<td>
 					<label>Height</label>
-					<input type="number" value="64" min="0" max="100" id="txtHeight" onchange="ChangeTextLineheight();" />
+					<input type="number" value="52" min="0" max="100" id="txtHeight" onchange="ChangeTextLineheight();" />
 				</td>
 				<td>
 					<label>Vertical Tuning</label>
@@ -222,11 +224,13 @@
 			</tr></table>
 			<hr />
 			
-			<h2>Overlay Options</h2>
-			<label>Enter image URL:</label>
-			<input id="addImage" type="text" value="" /><br />
-			<button onclick="AddImage();">Add Image</button><br />
-			<em>Click and drag the image to adjust placement.</em>
+			<div class="image-overlays">
+				<h2>Overlay Options</h2>
+				<label>Enter image URL:</label>
+				<input id="addImage" type="text" value="" /><br />
+				<button onclick="AddImage();">Add Image</button><br />
+				<em>Click and drag the image to adjust placement.</em>
+			</div>
 			
 		</div>
 		<div class="clear"></div>
@@ -352,6 +356,7 @@
 				$('#icon').append('<img class="overlay" src="'+$('#addImage').val()+'" id="overlay-'+zIndex+'" class="overlay" style="z-index:'+zIndex+'" />');
 				$('#overlay-' + zIndex).resizable();
 				$('#overlay-' + zIndex).draggable();
+				$('#overlay-' + zIndex).css('padding','100px');
 				zIndex += 1;
 			}
 		}
