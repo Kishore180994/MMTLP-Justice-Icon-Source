@@ -33,7 +33,7 @@
 		#canvas .right{float:right;width:45%;padding:15px;;margin:0 auto;border:solid 1px #ccc;background:#f1f1f1}
 		#canvas #icon{background:#FFF;height:100%;min-height:340px;position:relative;width:400px;height:400px}
 		#canvas #icon #iconImage{margin:0 auto;z-index:10;background: #000;-webkit-mask: url('mmtlp.svg') center 0 / contain repeat;width:400px;height:400px}
-		#canvas #icon .icon-text{text-align:center;height:100%;width:100%;vertical-align:middle;font-size:12px;line-height:12px;min-height:200px;position:absolute;top:40%;color:#FFF;font-size:52px;line-height:64px;font-weight:bold;text-shadow:4px 4px 0 #000;z-index:1000}
+		#canvas #icon .icon-text{text-align:center;height:100%;width:100%;vertical-align:middle;font-size:12px;line-height:12px;min-height:200px;position:absolute;top:42%;color:#FFF;font-size:52px;line-height:52px;font-weight:bold;text-shadow:4px 4px 0 #000;z-index:1000}
 		.clear{clear:both}
 		label em{font-weight:normal}
 		input{margin-bottom:5px}
