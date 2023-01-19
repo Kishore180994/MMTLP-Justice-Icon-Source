@@ -45,6 +45,8 @@
 		input[type='checkbox']{position:relative;top:-2px}
 		.overlay{position:absolute;top:0px;left:0;right:0;margin:0 auto;width:100%}
 		table{width:100%;border-collapse:collapse}
+		#layers{margin-top:10px}
+		#layers img{max-width:50px;max-height:50px}
 		@media screen and (max-width:800px){
 			#canvas .left,#canvas .right{float:none;width:100%;}
 			#canvas .left{margin-bottom:15px}
@@ -229,7 +231,9 @@
 				<label>Enter image URL:</label>
 				<input id="addImage" type="text" value="" /><br />
 				<button onclick="AddImage();">Add Image</button><br />
-				<em>Click and drag the image to adjust placement.</em>
+				<em>Click and drag the image to adjust placement.</em><br />
+				<div id="layers"></div>
+				
 			</div>
 			
 		</div>
@@ -256,8 +260,12 @@
 		var text = 'MMTLP';
 		LoadText();
 		function LoadText(){
-			text = window.location.search.substr(1).split('=')[1];
-			$('#txtContent').val(text.replace('%3C','<').replace('%3E','>'));
+			try{
+				text = window.location.search.substr(1).split('=')[1];
+				$('#txtContent').val(text.replace('%3C','<').replace('%3E','>'));
+			}catch(e){
+				text = 'MMTLP'
+			}
 			ChangeText();
 		}
 		function SwapIcon(){
@@ -353,12 +361,22 @@
 		var zIndex = 100;
 		function AddImage(){
 			if($('#addImage').val()!=''){
-				$('#icon').append('<img class="overlay" src="'+$('#addImage').val()+'" id="overlay-'+zIndex+'" class="overlay" style="z-index:'+zIndex+'" />');
+				var i = $('#addImage').val();
+				$('#icon').append('<img class="overlay" src="'+i+'" id="overlay-'+zIndex+'" style="z-index:'+zIndex+'" />');
 				$('#overlay-' + zIndex).resizable();
 				$('#overlay-' + zIndex).draggable();
 				$('#overlay-' + zIndex).css('padding','100px');
+				var newImg = '<table class="layer" id="layer-'+zIndex+'"><tr><td><img src="'+i+'" /></td><td><label>Scaling</label><input class="scaling" type="number" min="0" max="200" value="100" onchange="ChangeLayerScaling('+zIndex+');" /><td><label>Transparency</label><input type="number" min="0" value="1.00" max="1" step="0.01" onchange="ChangeLayerTransparency('+zIndex+');" class="transparency" /></td></tr></table>';
+				$('#layers').append(newImg);
+				$('#addImage').val('');
 				zIndex += 1;
 			}
+		}
+		function ChangeLayerScaling(v){
+			$('#overlay-'+v).css('padding',$('#layer-'+v+' .scaling').val()+'px');
+		}
+		function ChangeLayerTransparency(v){
+			$('#overlay-'+v).css('opacity',$('#layer-'+v+' .transparency').val());
 		}
 	</script>
 	
