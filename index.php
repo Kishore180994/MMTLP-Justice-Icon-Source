@@ -42,10 +42,11 @@
 		hr{margin:10px auto}
 		.inline{display:inline-block!important}
 		input[type='checkbox']{position:relative;top:-2px}
-		@media screen and (max-width:600px){
+		@media screen and (max-width:800px){
 			#canvas .left,#canvas .right{float:none;width:100%;}
 			#canvas .left{margin-bottom:15px}
-			#canvas #icon, #canvas #icon #iconImage{width:100%;max-width:400px;min-height:360px;height:auto!important;background-repeat:no-repeat;-webkit-mask-repeat:no-repeat}
+			#canvas #icon, #canvas #icon #iconImage{width:100%;max-width:328px;min-height:325px;height:auto!important;background-repeat:no-repeat;-webkit-mask-repeat:no-repeat}
+			#canvas{padding:0;border:0;background:#FFF
 		}
 		.overlay{position:absolute;top:0px;left:0;right:0;margin:0 auto;width:100%}
 		table{width:100%;border-collapse:collapse}
