@@ -219,7 +219,7 @@
 				</td>
 				<td>
 					<label>Vertical Tuning</label>
-					<input type="number" value="40" min="0" max="100" id="txtPosition" onchange="ChangeTextVertical();" />
+					<input type="number" value="42" min="0" max="100" id="txtPosition" onchange="ChangeTextVertical();" />
 				</td>
 			</tr></table>
 			<hr />
