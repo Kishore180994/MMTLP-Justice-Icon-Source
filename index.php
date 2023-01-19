@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-	<?php $text = 'MMTLP'; ?>
-	<?php if(isset($_GET['text'])) $text = strip_tags(htmlentities($text)); ?>
+<head><?php $text = 'MMTLP'; if(isset($_GET['t'])){ $text = strip_tags(htmlentities($text)); }?>
+	<?php echo '<!--'.$text.'-->'; ?>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
@@ -17,7 +16,7 @@
 	<meta name="twitter:title" content="<?php echo $text;?> Justice Icon | Generator" />
 	<meta name="twitter:description" content="Generate your OWN custom <?php echo $text;?> justice icon!" />
 	<meta name="twitter:image" content="https://www.mmtlp.me/favicon.png" />
-	
+
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
 	
@@ -28,11 +27,11 @@
 		label{font-weight:bold;display:block}
 		#icon *{width:100%;height:100%}
 		#icon .icon-text{height:auto!important}
-		#canvas{margin:0 auto;width:100%;max-width:835px;border:solid 1px #ccc;padding:15px;background:#EEE;}
+		#canvas{margin:0 auto;width:100%;max-width:835px;border:solid 1px #ccc;padding:15px;background:#EEE}
 		#canvas .left{float:left;width:50%;margin:0 auto}
 		#canvas .right{float:right;width:45%;padding:15px;;margin:0 auto;border:solid 1px #ccc;background:#f1f1f1}
 		#canvas #icon{background:#FFF;height:100%;min-height:340px;position:relative;width:400px;height:400px}
-		#canvas #icon #iconImage{margin:0 auto;z-index:10;background: #000;-webkit-mask: url('mmtlp.svg?v=<?php echo date('m/d/Y h:i:s a', time());?>') center 0 / contain repeat;width:400px;height:400px}
+		#canvas #icon #iconImage{margin:0 auto;z-index:10;background: #000;-webkit-mask: url('mmtlp.svg') center 0 / contain repeat;width:400px;height:400px}
 		#canvas #icon .icon-text{text-align:center;height:100%;width:100%;vertical-align:middle;font-size:12px;line-height:12px;min-height:200px;position:absolute;top:40%;color:#FFF;font-size:52px;line-height:64px;font-weight:bold;text-shadow:4px 4px 0 #000;z-index:1000}
 		.clear{clear:both}
 		label em{font-weight:normal}
@@ -145,7 +144,7 @@
 					</td>
 					<td>
 						<label>Color</label>
-						<input type="color" value="#1385c4" id="gradientIconColor" onchange="ToggleIconGradient();" />
+						<input type="color" value="#c31313" id="gradientIconColor" onchange="ToggleIconGradient();" />
 					</td>
 					<td>
 						<label>Degrees (Linear)</label>
@@ -171,7 +170,7 @@
 			
 			<h2>Text Options</h2>
 			<label>Text - <em>Use &lt;br&gt for line breaks</em></label>
-			<input type="text" value="MMTLP" id="txtContent" onchange="ChangeText();" />
+			<input type="text" value="<?php echo $text; ?>" id="txtContent" onchange="ChangeText();" />
 			
 			<label>Font</label>
 			<select id="textFont" name="textFont" onchange="ChangeTextFont();">
@@ -223,7 +222,8 @@
 			<h2>Overlay Options</h2>
 			<label>Enter image URL:</label>
 			<input id="addImage" type="text" value="" /><br />
-			<button onclick="AddImage();">Add Image</button>
+			<button onclick="AddImage();">Add Image</button><br />
+			<em>Click and drag the image to adjust placement.</em>
 			
 		</div>
 		<div class="clear"></div>
