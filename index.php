@@ -90,8 +90,8 @@
 			
 			<label for="iconFile">Icon</label>
 			<select id="iconFile" name="iconFile" onchange="SwapIcon();">
-				<option name="MMTLP">MMTLP Badge</option>
-				<option name="MMTLP">Additional icons coming soon!</option>
+				<option value="mmtlp.svg">MMTLP Badge</option>
+				<option value="mmtlp.svg">Additional icons coming soon!</option>
 			</select>
 			
 			<table><tr>
