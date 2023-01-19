@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
+	<?php $text = 'MMTLP'; ?>
+	<?php if(isset($_GET['text'])) $text = strip_tags(htmlentities($text)); ?>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-	<title>MMTLP Justice Icon | Generator</title>
-	
+	<title><?php echo $text;?> Justice Icon | Generator</title>
+
 	<meta name="og:url" content="https://www.mmtlp.me/" />
-	<meta name="og:title" content="MMTLP Justice Icon | Generator" />
-	<meta name="og:description" content="Generate your OWN custom MMTLP justice icon!" />
-	<meta name="og:image" content="https://www.mmtlp.me/favicon.png?v=1" />
+	<meta name="og:title" content="<?php echo $text;?> Justice Icon | Generator" />
+	<meta name="og:description" content="Generate your OWN custom <?php echo $text;?> justice icon!" />
+	<meta name="og:image" content="https://www.mmtlp.me/favicon.png" />
 	
 	<meta name="twitter:site" content="https://www.mmtlp.me/" />
-	<meta name="twitter:title" content="MMTLP Justice Icon | Generator" />
-	<meta name="twitter:description" content="Generate your OWN custom MMTLP justice icon!" />
-	<meta name="twitter:image" content="https://www.mmtlp.me/favicon.png?v=1" />
+	<meta name="twitter:title" content="<?php echo $text;?> Justice Icon | Generator" />
+	<meta name="twitter:description" content="Generate your OWN custom <?php echo $text;?> justice icon!" />
+	<meta name="twitter:image" content="https://www.mmtlp.me/favicon.png" />
 	
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+	
 	<style type="text/css">
 		*{box-sizing:border-box;font-family:Verdana;vertical-align:top;font-size:12px;line-height:16px;position:relative}
 		h1{text-align:center;font-size:24px;margin:20px auto}
@@ -28,7 +32,7 @@
 		#canvas .left{float:left;width:50%;margin:0 auto}
 		#canvas .right{float:right;width:45%;padding:15px;;margin:0 auto;border:solid 1px #ccc;background:#f1f1f1}
 		#canvas #icon{background:#FFF;height:100%;min-height:340px;position:relative;width:400px;height:400px}
-		#canvas #icon #iconImage{margin:0 auto;z-index:10;background: #000;-webkit-mask: url('icon.svg?v=<?php echo date('m/d/Y h:i:s a', time());?>') center 0 / contain repeat;width:400px;height:400px}
+		#canvas #icon #iconImage{margin:0 auto;z-index:10;background: #000;-webkit-mask: url('mmtlp.svg?v=<?php echo date('m/d/Y h:i:s a', time());?>') center 0 / contain repeat;width:400px;height:400px}
 		#canvas #icon .icon-text{text-align:center;height:100%;width:100%;vertical-align:middle;font-size:12px;line-height:12px;min-height:200px;position:absolute;top:40%;color:#FFF;font-size:52px;line-height:64px;font-weight:bold;text-shadow:4px 4px 0 #000;z-index:1000}
 		.clear{clear:both}
 		label em{font-weight:normal}
@@ -43,12 +47,14 @@
 			#canvas .left{margin-bottom:15px}
 			#canvas #icon, #canvas #icon #iconImage{width:100%;max-width:400px;min-height:360px;height:auto!important;background-repeat:no-repeat;-webkit-mask-repeat:no-repeat}
 		}
+		.overlay{position:absolute;top:0px;left:0;right:0;margin:0 auto;width:100%}
 		table{width:100%;border-collapse:collapse}
 	</style>
+	
 </head>
 <body>
 
-	<h1>MMTLP Icon Generator</h1>
+	<h1><?php echo $text;?> Icon Generator</h1>
 	
 	<center>
 		<a target="_blank" href="https://twitter.com/search?q=%23MMTLP">#MMTLP</a> | 
@@ -75,12 +81,18 @@
 	
 		<div class="left" id="icon">
 			<div id="iconImage"></div>
-			<div class="icon-text">MMTLP</div>
+			<div class="icon-text"><?php echo $text; ?></div>
 		</div>
 		
 		<div class="right" id="inputs">
 			
-			<h2>Color Options</h2>
+			<h2>Icon Options</h2>
+			
+			<label for="iconFile">Icon</label>
+			<select id="iconFile" name="iconFile" onchange="SwapIcon();">
+				<option name="MMTLP">MMTLP Badge</option>
+				<option name="MMTLP">Additional icons coming soon!</option>
+			</select>
 			
 			<table><tr>
 			<td>
@@ -94,7 +106,10 @@
 			</tr></table>
 			
 			<input type="checkbox" id="gradientOpt" value="1" onchange="ToggleGradient();" class="inline" />
-			<label for="gradientOpt" class="inline" >Gradient</label>
+			<label for="gradientOpt" class="inline" >Background Gradient</label>
+			<br />
+			<input type="checkbox" id="gradientIconOpt" value="1" onchange="ToggleIconGradient();" class="inline" />
+			<label for="gradientIconOpt" class="inline" >Icon Gradient</label>
 			<br />
 			<input type="checkbox" id="shadowOpt" value="1" onchange="ToggleInset();" class="inline" />
 			<label for="shadowOpt" class="inline" >Inset Shadow</label>
@@ -115,6 +130,26 @@
 					<td>
 						<label>Degrees (Linear)</label>
 						<input type="number" value="180" min="0" max="360" id="gradientRadius" onchange="ToggleGradient();" />
+					</td>
+				</tr></table>
+			</div>
+			
+			<div id="gradient-icon-options" style="display:none">
+				<table><tr>
+					<td>
+						<label>Style</label>
+						<select id="gradientIconStyle" onchange="ToggleIconGradient();">
+							<option value="linear">Linear</option>
+							<option value="radial">Radial</option>
+						</select>
+					</td>
+					<td>
+						<label>Color</label>
+						<input type="color" value="#1385c4" id="gradientIconColor" onchange="ToggleIconGradient();" />
+					</td>
+					<td>
+						<label>Degrees (Linear)</label>
+						<input type="number" value="180" min="0" max="360" id="gradientIconRadius" onchange="ToggleIconGradient();" />
 					</td>
 				</tr></table>
 			</div>
@@ -183,6 +218,12 @@
 					<input type="number" value="40" min="0" max="100" id="txtPosition" onchange="ChangeTextVertical();" />
 				</td>
 			</tr></table>
+			<hr />
+			
+			<h2>Overlay Options</h2>
+			<label>Enter image URL:</label>
+			<input id="addImage" type="text" value="" /><br />
+			<button onclick="AddImage();">Add Image</button>
 			
 		</div>
 		<div class="clear"></div>
@@ -205,6 +246,10 @@
 	</center>
 	
 	<script>
+		function SwapIcon(){
+			var i = $('#iconFile').val();
+			$('#canvas #icon #iconImage').css('cssText',"-webkit-mask: url('"+i+"') center 0 / contain repeat;");
+		}
 		function ChangeBackground(){
 			$('#iconImage').css('background',$('#bgColor').val());
 		}
@@ -268,6 +313,21 @@
 				ChangeBackground();
 			}
 		}
+		function ToggleIconGradient(){
+			if($('#gradientIconOpt').is(':checked')){
+				$('#gradient-icon-options').slideDown(250);
+				var t = $('#gradientIconStyle').val();
+				var t2 = 'circle';
+				var c1 = $('#iconColor').val().toLowerCase();
+				var c2 = $('#gradientIconColor').val().toLowerCase();
+				var r = $('#gradientIconRadius').val();
+				if(t=='linear') t2 = r+'deg'
+				$('#icon').css('cssText','background:'+t+'-gradient('+t2+','+hexToRgbA(c1)+', '+c1+' 0%, '+hexToRgbA(c2)+' 100%);');
+			}else{
+				$('#gradient-icon-options').slideUp(250);
+				ChangeIcon();
+			}
+		}
 		function hexToRgbA(hex){
 			var c = hex.substring(1).split('');
 			if(c.length== 3){
@@ -275,6 +335,15 @@
 			}
 			c = '0x'+c.join('');
 			return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+',1)';
+		}
+		var zIndex = 100;
+		function AddImage(){
+			if($('#addImage').val()!=''){
+				$('#icon').append('<img class="overlay" src="'+$('#addImage').val()+'" id="overlay-'+zIndex+'" class="overlay" style="z-index:'+zIndex+'" />');
+				$('#overlay-' + zIndex).resizable();
+				$('#overlay-' + zIndex).draggable();
+				zIndex += 1;
+			}
 		}
 	</script>
 	
