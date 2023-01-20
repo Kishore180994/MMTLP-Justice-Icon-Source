@@ -229,7 +229,7 @@
 			<div class="image-overlays">
 				<h2>Overlay Options</h2>
 				<label>Enter image URL:</label>
-				<input id="addImage" type="text" value="" /><br />
+				<input id="addImage" type="text" value="" placeholder="Enter external URL" /><br />
 				<button onclick="AddImage();">Add Image</button><br />
 				<em>Click and drag the image to adjust placement.</em><br />
 				<div id="layers"></div>
